@@ -61,7 +61,7 @@
         $('#results').hide();
         $('#people').empty();
         var val = $("#location").val();
-        query = "select * where B like '%"+val+"%'";
+        query = "select * where B like %"+val+"%";
 
         // .toLowerCase()
         console.log(query)
