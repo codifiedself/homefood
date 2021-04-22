@@ -61,7 +61,7 @@
         $('#results').hide();
         $('#people').empty();
         var val = $("#location").val();
-        query = "select * where B like %"+val+"%";
+        query = "select * where B contains '"+val+"' or B contains '"+ val.toLowerCase() + "' or B contains '"+ val.toUpperCase()+"' or B contains '"+ titleCase(val)+"'";
 
         // .toLowerCase()
         console.log(query)
