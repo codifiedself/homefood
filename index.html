@@ -1,1 +1,87 @@
-Hello World
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Codifiedself">
+    <title>Home Cooked Meals in Bangalore</title>
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
+    <meta name="theme-color" content="#7952b3">
+
+
+
+
+  </head>
+
+  <body>
+    
+    <div class="px-4 py-5 my-5 text-center">
+
+      <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Please see the complete list below or search your area in the search box below</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <input type="text" id="location" style="width:30%" placeholder="Enter your area here"/>
+          <button type="button" onclick="search()" class="btn btn-primary btn-lg px-4 me-sm-3" id="search">Search</button>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div id="results" class="px-4 py-5 my-5 text-center" style="display:none">
+
+      <h3 class="display-8 fw-bold">List of volunteers</h3>
+      <p class="lead mb-4">Below is the list of people who are available in your selected area</p>
+      <div class="col-lg-10 mx-auto">
+        <table id="people" class="table table-condensed table-striped table-responsive"></table>
+      </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+  
+
+    <script type="text/javascript">
+      var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1_0HjS2y8xczUceLPq4jMzUX2TVZvSaSZnE1AgB3hAI0/edit#gid=0';
+
+      function search(){
+        $('#results').hide();
+        $('#people').empty();
+        var val = $("#location").val();
+        query = "select * where B contains '"+val+"' or B contains '"+ val.toLowerCase() + "' or B contains '"+ val.toUpperCase()+"' or B contains '"+ titleCase(val)+"'";
+
+        // .toLowerCase()
+        console.log(query)
+        $('#people').sheetrock({
+          url: mySpreadsheet,
+          query: query,
+          fetchSize: 50
+        });
+        $('#results').show();
+      }
+
+      function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+        for (var i = 0; i < str.length; i++) {
+          str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+        }
+        return str.join(' ');
+      }
+    </script>
+
+    
+  </body>
+</html>
