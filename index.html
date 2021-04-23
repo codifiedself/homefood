@@ -15,6 +15,9 @@
 
 
     <meta name="theme-color" content="#7952b3">
+    <style type="text/css">
+      th {font-weight:normal;}
+    </style>
 
 
 
@@ -28,72 +31,74 @@
       <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Please see the complete list below or search your area in the search box below</p>
-<!--         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <!--    
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <input type="text" id="location" style="width:30%" placeholder="Enter your area here"/>
           <button type="button" onclick="search()" class="btn btn-primary btn-lg px-4 me-sm-3" id="search">Search</button>
-          
-
-        </div> -->
-<select class="form-select" id="location_list" aria-label="Default select example">
-<option value="">All over Bangalore</option>
-<option value="Akshayanagar">Akshayanagar</option>
-<option value="Banashankari">Banashankari</option>
-<option value="Basavanagudi">Basavanagudi</option>
-<option value="Begur"> Begur</option>
-<option value="Benson Town"> Benson Town</option>
-<option value="Bilekahalli"> Bilekahalli</option>
-<option value="Bommanahalli">Bommanahalli</option>
-<option value="BTM Layout">BTM Layout</option>
-<option value="Chanasandhara"> Chanasandhara</option>
-<option value="Chikkalasandra">Chikkalasandra</option>
-<option value="Cooke Town">Cooke Town</option>
-<option value="Cox Town">Cox Town</option>
-<option value="CV Raman Nagar">CV Raman Nagar</option>
-<option value="Diamond district">Diamond district</option>
-<option value="Ejipura"> Ejipura</option>
-<option value="Fraser Town"> Fraser Town</option>
-<option value="Geddalahalli">Geddalahalli</option>
-<option value="HAL"> HAL</option>
-<option value="HBR layout">HBR layout</option>
-<option value="Hebbal">Hebbal</option>
-<option value="Hennur">Hennur</option>
-<option value="Hoodi"> Hoodi</option>
-<option value="HSR Layout">HSR Layout</option>
-<option value="Hulimavu">Hulimavu</option>
-<option value="Indiranagar"> Indiranagar</option>
-<option value="ITPL">ITPL</option>
-<option value="Jayanagar"> Jayanagar</option>
-<option value="Jeevanbheema Nagar">Jeevanbheema Nagar</option>
-<option value="JP Nagar">JP Nagar</option>
-<option value="Kadugodi">Kadugodi</option>
-<option value="Kaggadasapura"> Kaggadasapura</option>
-<option value="Kanakapura Road"> Kanakapura Road</option>
-<option value="Konankunte Cross">Konankunte Cross</option>
-<option value="Koramangala"> Koramangala</option>
-<option value="Kumara Park West">Kumara Park West</option>
-<option value="Kumaraswamy Layout">Kumaraswamy Layout</option>
-<option value="Mahadevapura">Mahadevapura</option>
-<option value="Malleswaram"> Malleswaram</option>
-<option value="Manyata Tech Park"> Manyata Tech Park</option>
-<option value="Marathahalli">Marathahalli</option>
-<option value="Maruthi Seva Nagar">Maruthi Seva Nagar</option>
-<option value="Nagawara">Nagawara</option>
-<option value="Nagawara">Nagawara</option>
-<option value="Nandi Durga Road">Nandi Durga Road</option>
-<option value="New Thippasandra">New Thippasandra</option>
-<option value="Old Airport Road">Old Airport Road</option>
-<option value="Prashant Layout"> Prashant Layout</option>
-<option value="Richardstown">Richardstown</option>
-<option value="RT Nagar">RT Nagar</option>
-<option value="Sadashiv Nagar">Sadashiv Nagar</option>
-<option value="Sarjapur">Sarjapur</option>
-<option value="Seshadaripuram">Seshadaripuram</option>
-<option value="Thanisandra"> Thanisandra</option>
-<option value="Varthur"> Varthur</option>
-<option value="Vasanth Nagar"> Vasanth Nagar</option>
-<option value="Whitefield">Whitefield</option>
-<option value="Yelahanka"> Yelahanka</option>
-</select>
+        </div> 
+        -->
+        <select class="form-select" id="location_list" aria-label="Default select example">
+          <option value="" selected>Select a location</option>
+          <option value="">All over Bangalore</option>
+          <option value="Akshayanagar">Akshayanagar</option>
+          <option value="Banashankari">Banashankari</option>
+          <option value="Basavanagudi">Basavanagudi</option>
+          <option value="Begur">Begur</option>
+          <option value="Bellandur">Bellandur</option>
+          <option value="Benson Town">Benson Town</option>
+          <option value="Bilekahalli">Bilekahalli</option>
+          <option value="Bommanahalli">Bommanahalli</option>
+          <option value="BTM Layout">BTM Layout</option>
+          <option value="Chanasandhara">Chanasandhara</option>
+          <option value="Chikkalasandra">Chikkalasandra</option>
+          <option value="Cooke Town">Cooke Town</option>
+          <option value="Cox Town">Cox Town</option>
+          <option value="CV Raman Nagar">CV Raman Nagar</option>
+          <option value="Diamond district">Diamond district</option>
+          <option value="Ejipura">Ejipura</option>
+          <option value="Fraser Town">Fraser Town</option>
+          <option value="Geddalahalli">Geddalahalli</option>
+          <option value="HAL">HAL</option>
+          <option value="HBR layout">HBR layout</option>
+          <option value="Hebbal">Hebbal</option>
+          <option value="Hennur">Hennur</option>
+          <option value="Hoodi">Hoodi</option>
+          <option value="HSR Layout">HSR Layout</option>
+          <option value="Hulimavu">Hulimavu</option>
+          <option value="Indiranagar">Indiranagar</option>
+          <option value="ITPL">ITPL</option>
+          <option value="Jayanagar"> Jayanagar</option>
+          <option value="Jeevanbheema Nagar">Jeevanbheema Nagar</option>
+          <option value="JP Nagar">JP Nagar</option>
+          <option value="Kadugodi">Kadugodi</option>
+          <option value="Kaggadasapura"> Kaggadasapura</option>
+          <option value="Kanakapura Road"> Kanakapura Road</option>
+          <option value="Konankunte Cross">Konankunte Cross</option>
+          <option value="Koramangala"> Koramangala</option>
+          <option value="Kumara Park West">Kumara Park West</option>
+          <option value="Kumaraswamy Layout">Kumaraswamy Layout</option>
+          <option value="Mahadevapura">Mahadevapura</option>
+          <option value="Malleswaram"> Malleswaram</option>
+          <option value="Manyata Tech Park"> Manyata Tech Park</option>
+          <option value="Marathahalli">Marathahalli</option>
+          <option value="Maruthi Seva Nagar">Maruthi Seva Nagar</option>
+          <option value="Nagawara">Nagawara</option>
+          <option value="Nagawara">Nagawara</option>
+          <option value="Nandi Durga Road">Nandi Durga Road</option>
+          <option value="New Thippasandra">New Thippasandra</option>
+          <option value="Old Airport Road">Old Airport Road</option>
+          <option value="Prashant Layout"> Prashant Layout</option>
+          <option value="Richardstown">Richardstown</option>
+          <option value="RT Nagar">RT Nagar</option>
+          <option value="Sadashiv Nagar">Sadashiv Nagar</option>
+          <option value="Sarjapur">Sarjapur</option>
+          <option value="Seshadaripuram">Seshadaripuram</option>
+          <option value="Thanisandra"> Thanisandra</option>
+          <option value="Varthur"> Varthur</option>
+          <option value="Vasanth Nagar"> Vasanth Nagar</option>
+          <option value="Whitefield">Whitefield</option>
+          <option value="Yelahanka"> Yelahanka</option>
+        </select>
       </div>
     </div>
 
@@ -101,6 +106,7 @@
 
       <h3 class="display-8 fw-bold">List of volunteers</h3>
       <p class="lead mb-4">Below is the list of people who are available in your selected area</p>
+
       <div class="col-lg-10 mx-auto">
         <table id="people" class="table table-condensed table-striped table-responsive"></table>
       </div>
@@ -122,15 +128,20 @@
       function search(val){
         $('#results').hide();
         $('#people').empty();
-        
-        query = "select * where lower(C) contains '"+ val.toLowerCase() +"'";
+
+        if(val == ""){
+          query = "select *"
+        } else {
+          query = "select * where lower(C) contains '"+ val.toLowerCase() +"'";
+        }
 
         // .toLowerCase()
         console.log(query)
         $('#people').sheetrock({
           url: mySpreadsheet,
           query: query,
-          fetchSize: 50
+          // fetchSize: 100,
+          reset: true
         });
         $('#results').show();
       }
@@ -142,8 +153,6 @@
           var val = $(this).val();
           search(val);
         });
-
-        search(""); //load full list
     });
     </script>
 
