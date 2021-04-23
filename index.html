@@ -5,41 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Codifiedself">
+    <meta name="author" content="Nitin Pande">
     <title>Home Cooked Meals in Bangalore</title>
-
-    
-
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
-
     <meta name="theme-color" content="#7952b3">
     <style type="text/css">
       th {font-weight:normal;}
     </style>
-
-
-
-
   </head>
 
   <body>
-    
     <div class="px-4 py-5 my-5 text-center">
-
       <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Please see the complete list below or search your area in the search box below</p>
-        <!--    
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <input type="text" id="location" style="width:30%" placeholder="Enter your area here"/>
-          <button type="button" onclick="search()" class="btn btn-primary btn-lg px-4 me-sm-3" id="search">Search</button>
-        </div> 
-        -->
         <select class="form-select" id="location_list" aria-label="Default select example">
           <option value="" selected>Select a location</option>
-          <option value="">All over Bangalore</option>
+          <option value="All over Bangalore">All over Bangalore</option>
           <option value="Akshayanagar">Akshayanagar</option>
           <option value="Banashankari">Banashankari</option>
           <option value="Basavanagudi">Basavanagudi</option>
@@ -78,7 +61,7 @@
           <option value="Kumara Park West">Kumara Park West</option>
           <option value="Kumaraswamy Layout">Kumaraswamy Layout</option>
           <option value="Mahadevapura">Mahadevapura</option>
-          <option value="Malleswaram"> Malleswaram</option>
+          <option value="Malleswaram">Malleswaram</option>
           <option value="Manyata Tech Park"> Manyata Tech Park</option>
           <option value="Marathahalli">Marathahalli</option>
           <option value="Maruthi Seva Nagar">Maruthi Seva Nagar</option>
@@ -93,8 +76,8 @@
           <option value="Sadashiv Nagar">Sadashiv Nagar</option>
           <option value="Sarjapur">Sarjapur</option>
           <option value="Seshadaripuram">Seshadaripuram</option>
-          <option value="Thanisandra"> Thanisandra</option>
-          <option value="Varthur"> Varthur</option>
+          <option value="Thanisandra">Thanisandra</option>
+          <option value="Varthur">Varthur</option>
           <option value="Vasanth Nagar"> Vasanth Nagar</option>
           <option value="Whitefield">Whitefield</option>
           <option value="Yelahanka"> Yelahanka</option>
@@ -114,7 +97,6 @@
 
 
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
@@ -123,30 +105,23 @@
     <script type="text/javascript">
       var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1Y6r9GXE6eooPxi1X820zTxPXSuHK4J9Q4_yHDgF4Rno/edit#gid=0';
 
-
-
       function search(val){
         $('#results').hide();
         $('#people').empty();
 
-        if(val == ""){
-          query = "select *"
-        } else {
+        if(val != ""){
           query = "select * where lower(C) contains '"+ val.toLowerCase() +"'";
+
+          $('#people').sheetrock({
+            url: mySpreadsheet,
+            query: query,
+            reset: true
+          });
+
+          $('#results').show();
+
         }
-
-        // .toLowerCase()
-        console.log(query)
-        $('#people').sheetrock({
-          url: mySpreadsheet,
-          query: query,
-          // fetchSize: 100,
-          reset: true
-        });
-        $('#results').show();
       }
-
-
 
     $( document ).ready(function() {
         $("#location_list").change(function(){
@@ -154,6 +129,7 @@
           search(val);
         });
     });
+
     </script>
 
     
