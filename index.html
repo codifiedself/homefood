@@ -11,16 +11,30 @@
     <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <meta name="theme-color" content="#7952b3">
     <style type="text/css">
-      th {font-weight:normal;}
+      th {
+        font-weight:normal;
+      }
+
+      #city_list {
+        margin-bottom: 20px; 
+      }
     </style>
   </head>
 
   <body>
     <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore</h1>
+      <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore and Chennai</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Please see the complete list below or search your area in the search box below</p>
-        <select class="form-select" id="location_list" aria-label="Default select example">
+        <p class="lead mb-4">Please select a city and area from the list below to get a list of people providing food in your area.</p>
+
+        <select class="form-select" id="city_list" aria-label="Default select example">
+          <option value="" selected>Select a city</option>
+          <option value="blr">Bangalore</option>
+          <option value="chn">Chennai</option>
+          <!-- <option value="dli">Delhi</option> -->
+        </select>
+
+        <select class="form-select area_list" id="blr_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
           <option value="All over Bangalore">All over Bangalore</option>
           <option value="Akshayanagar">Akshayanagar</option>
@@ -91,6 +105,71 @@
           <option value="Whitefield">Whitefield</option>
           <option value="Yelahanka">Yelahanka</option>
         </select>
+
+
+        <select class="form-select area_list" id="chn_list" aria-label="Default select example" style="display:none">
+          <option value="" selected>Select a location</option>
+          <option value="All across Chennai">All across Chennai</option>
+          <option value="Adambakkam">Adambakkam</option>
+          <option value="Alwarpet">Alwarpet</option>
+          <option value="Alwarthirunagar">Alwarthirunagar</option>
+          <option value="Ambattur">Ambattur</option>
+          <option value="Anna Nagar">Anna Nagar</option>
+          <option value="Arumbakkam">Arumbakkam</option>
+          <option value="Ashok Nagar">Ashok Nagar</option>
+          <option value="Aynavaram">Aynavaram</option>
+          <option value="Camp Road">Camp Road</option>
+          <option value="Cholaimedu">Cholaimedu</option>
+          <option value="Egmore">Egmore</option>
+          <option value="Hirumullaivoyal">Hirumullaivoyal</option>
+          <option value="Kesavardhini">Kesavardhini</option>
+          <option value="Kilpauk">Kilpauk</option>
+          <option value="KK Nagar">KK Nagar</option>
+          <option value="Kodambakkam">Kodambakkam</option>
+          <option value="Kolathur">Kolathur</option>
+          <option value="Koyembedu">Koyembedu</option>
+          <option value="Madipakkam">Madipakkam</option>
+          <option value="Maduravoyal">Maduravoyal</option>
+          <option value="Mandaveli">Mandaveli</option>
+          <option value="Medavakkam">Medavakkam</option>
+          <option value="Mogappair">Mogappair</option>
+          <option value="Moggapair">Moggapair</option>
+          <option value="Mugappair">Mugappair</option>
+          <option value="Mylapore">Mylapore</option>
+          <option value="Nandanam">Nandanam</option>
+          <option value="Nanganallur">Nanganallur</option>
+          <option value="Nerkundram">Nerkundram</option>
+          <option value="Nolambur">Nolambur</option>
+          <option value="Nolumbur">Nolumbur</option>
+          <option value="Padi">Padi</option>
+          <option value="Perambur">Perambur</option>
+          <option value="Porur">Porur</option>
+          <option value="Purashawalkam">Purashawalkam</option>
+          <option value="Purusaiwalkam">Purusaiwalkam</option>
+          <option value="Purusawalkam">Purusawalkam</option>
+          <option value="Saligramam">Saligramam</option>
+          <option value="Selaiyur">Selaiyur</option>
+          <option value="Shenoy Nagar">Shenoy Nagar</option>
+          <option value="Sithalapakkam">Sithalapakkam</option>
+          <option value="Teyampet">Teyampet</option>
+          <option value="Thirumangalam">Thirumangalam</option>
+          <option value="TNagar">TNagar</option>
+          <option value="Ullagram">Ullagram</option>
+          <option value="Vadapalani">Vadapalani</option>
+          <option value="Valasaravakkam">Valasaravakkam</option>
+          <option value="Velachery">Velachery</option>
+          <option value="Vepery">Vepery</option>
+          <option value="Villivakkam">Villivakkam</option>
+          <option value="Virugambakkam">Virugambakkam</option>
+          <option value="West Mambalam">West Mambalam</option>
+        </select>
+
+        <select class="form-select area_list" id="dli_list" aria-label="Default select example" style="display:none">
+          <option value="" selected>Select a location</option>
+          <option value="All over Delhi">All over Delhi</option>
+
+        </select>
+
       </div>
     </div>
 
@@ -112,17 +191,35 @@
   
 
     <script type="text/javascript">
-      var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1Y6r9GXE6eooPxi1X820zTxPXSuHK4J9Q4_yHDgF4Rno/edit#gid=0';
 
-      function search(val){
-        $('#results').hide();
-        $('#people').empty();
 
-        if(val != ""){
-          query = "select * where lower(C) contains '"+ val.toLowerCase() +"'";
+      const BLR_SHEET = 'https://docs.google.com/spreadsheets/d/1Y6r9GXE6eooPxi1X820zTxPXSuHK4J9Q4_yHDgF4Rno/edit#gid=0';
+      const BLR_COLUMN_TO_SEARCH = "C";
+
+      const CHN_SHEET = 'https://docs.google.com/spreadsheets/d/1bCdBREvnO5W9GpsmFhra1SECsSNAvKm4aNs4BVXiuu0/edit#gid=0';
+      const CHN_COLUMN_TO_SEARCH = "B";
+
+      const DLI_SHEET = 'https://docs.google.com/spreadsheets/d/1Y6r9GXE6eooPxi1X820zTxPXSuHK4J9Q4_yHDgF4Rno/edit#gid=0';
+      const DLI_COLUMN_TO_SEARCH = "C";
+
+      const BLR = "blr";
+      const CHN = "chn";
+      const DLI = "dli";
+
+
+  
+      function search(city, area, sheetColumn){
+        hideResults();
+      
+        let sheetDetails = getSheetDetails(city);
+
+        // console.log(city + sheetUrl);
+
+        if(area != ""){
+          query = "select * where lower(" +sheetDetails[1]+ ") contains '"+ area.toLowerCase() +"'";
 
           $('#people').sheetrock({
-            url: mySpreadsheet,
+            url: sheetDetails[0],
             query: query,
             reset: true
           });
@@ -132,12 +229,71 @@
         }
       }
 
-    $( document ).ready(function() {
-        $("#location_list").change(function(){
-          var val = $(this).val();
-          search(val);
-        });
-    });
+
+      function getSheetDetails(cityName){
+        let sheetUrl = BLR_SHEET;
+        let column = BLR_COLUMN_TO_SEARCH;
+
+        if(cityName == CHN){
+           sheetUrl = CHN_SHEET;
+           column = CHN_COLUMN_TO_SEARCH;
+        } else if(cityName == DLI){
+           sheetUrl = DLI_SHEET;
+           column = DLI_COLUMN_TO_SEARCH
+        } 
+
+        return [sheetUrl, column]
+
+      }
+
+      function show_relevant_location_dropdown(cityName){
+        if(cityName == CHN){
+          $(".area_list").hide();
+          $("#chn_list").show();
+        } 
+
+        if(cityName == DLI){
+          $(".area_list").hide();
+          $("#dli_list").show();
+        } 
+
+        if(cityName == BLR){
+          $(".area_list").hide();
+          $("#blr_list").show();
+        } 
+
+      }
+
+      function hideResults(){
+        $('#results').hide();
+        $('#people').empty();
+      }
+
+
+      $( document ).ready(function() {
+          $("#city_list").change(function(){
+            var city = $(this).val();
+            hideResults();
+            show_relevant_location_dropdown(city);
+          });
+
+
+          $("#blr_list").change(function(){
+            var area = $(this).val();
+            search(BLR, area);
+          });
+
+          $("#chn_list").change(function(){
+            var area = $(this).val();
+            search(CHN, area);
+          });
+
+          $("#dli_list").change(function(){
+            var area = $(this).val();
+            search(DLI, area);
+          });
+
+      });
 
     </script>
 
