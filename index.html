@@ -21,17 +21,18 @@
     </style>
   </head>
 
+
   <body>
     <div class="px-4 py-5 my-5 text-center">
-      <h1 class="display-5 fw-bold">Home Cooked Meals in Bangalore and Chennai</h1>
+      <h1 class="display-6 fw-bold">Home Cooked Meals in Bangalore, Chennai and Delhi</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Please select a city and area from the list below to get a list of people providing food in your area.</p>
+        <p class="lead mb-4">Please select a city and area below to get a list of people/vendors providing meals in your area.</p>
 
-        <select class="form-select" id="city_list" aria-label="Default select example">
+        <select class="form-select" id="city_list" aria-label="Default select example" style="margin-top: 50px">
           <option value="" selected>Select a city</option>
           <option value="blr">Bangalore</option>
           <option value="chn">Chennai</option>
-          <!-- <option value="dli">Delhi</option> -->
+          <option value="dli">Delhi</option>
         </select>
 
         <select class="form-select area_list" id="blr_list" aria-label="Default select example" style="display:none">
@@ -166,8 +167,68 @@
 
         <select class="form-select area_list" id="dli_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
-          <option value="All over Delhi">All over Delhi</option>
-
+          <option value="All across Delhi">All across Delhi</option>
+          <option value="North Delhi">North Delhi</option>
+          <option value="East Delhi">East Delhi</option>
+          <option value="South Delhi">South Delhi</option>
+          <option value="West Delhi">West Delhi</option>
+          <option value="Gurgaon">Gurgaon</option>
+          <option value="Noida">Noida</option>
+          <option value="Faridabad">Faridabad</option>
+          <option value="Ghaziabad">Ghaziabad</option>
+          <option value="Alaknanda">Alaknanda</option>
+          <option value="Anand Lok">Anand Lok</option>
+          <option value="Ashok Vihar">Ashok Vihar</option>
+          <option value="Bhogal">Bhogal</option>
+          <option value="Chittranjan park">Chittranjan park</option>
+          <option value="Civil Lines">Civil Lines</option>
+          <option value="CR park">CR park</option>
+          <option value="Dwarka">Dwarka</option>
+          <option value="GK1">GK1</option>
+          <option value="GK2">GK2</option>
+          <option value="GK">GK</option>
+          <option value="Greater Noida">Greater Noida</option>
+          <option value="Green Park">Green Park</option>
+          <option value="Gulmohar Park">Gulmohar Park</option>
+          <option value="Hauz Khas">Hauz Khas</option>
+          <option value="HauzKhas">HauzKhas</option>
+          <option value="Indirapuram">Indirapuram</option>
+          <option value="Jamia">Jamia</option>
+          <option value="Jamia Nagar,">Jamia Nagar,</option>
+          <option value="Janakpuri">Janakpuri</option>
+          <option value="Jangpura">Jangpura</option>
+          <option value="Kalkaji">Kalkaji</option>
+          <option value="Kaushambi">Kaushambi</option>
+          <option value="Khirki extension">Khirki extension</option>
+          <option value="Lajpat Nagar">Lajpat Nagar</option>
+          <option value="Malviya nagar">Malviya nagar</option>
+          <option value="Mayur Vihar">Mayur Vihar</option>
+          <option value="New Friends Colony">New Friends Colony</option>
+          <option value="Okhla">Okhla</option>
+          <option value="Panchsheel enc.">Panchsheel enc.</option>
+          <option value="Panchsheel Park">Panchsheel Park</option>
+          <option value="Paschim Vihar">Paschim Vihar</option>
+          <option value="Patparganj">Patparganj</option>
+          <option value="Pitampura">Pitampura</option>
+          <option value="Prashant Vihar">Prashant Vihar</option>
+          <option value="Punjabi Bagh">Punjabi Bagh</option>
+          <option value="Raja Garden">Raja Garden</option>
+          <option value="Rajouri garden">Rajouri garden</option>
+          <option value="Rani Bagh Pitampura">Rani Bagh Pitampura</option>
+          <option value="Rohini">Rohini</option>
+          <option value="Safdarjung">Safdarjung</option>
+          <option value="Sainik Farms">Sainik Farms</option>
+          <option value="Saket">Saket</option>
+          <option value="Sarita Vihar">Sarita Vihar</option>
+          <option value="Shakti Nagar">Shakti Nagar</option>
+          <option value="Shalimar Bagh">Shalimar Bagh</option>
+          <option value="Sheikh Serai">Sheikh Serai</option>
+          <option value="Soami Nagar">Soami Nagar</option>
+          <option value="Tilak Nagar">Tilak Nagar</option>
+          <option value="Vaishali">Vaishali</option>
+          <option value="Vasant Kunj">Vasant Kunj</option>
+          <option value="Vasant Vihar">Vasant Vihar</option>
+          <option value="Vasundhra">Vasundhra</option>
         </select>
 
       </div>
@@ -175,13 +236,23 @@
 
     <div id="results" class="px-4 py-5 my-5 text-center" style="display:none">
 
-      <h3 class="display-8 fw-bold">List of volunteers</h3>
-      <p class="lead mb-4">Below is the list of people who are available in your selected area</p>
+      <h3 class="display-8 fw-bold">Below is the list of people/vendors who are available in this area</h3>
+      <!-- <p class="lead mb-4">Below is the list of people,vendors who are available in your selected area</p> -->
 
-      <div class="col-lg-10 mx-auto">
+      <div class="col-lg-10 mx-auto" style="margin-top:20px">
         <table id="people" class="table table-condensed table-striped table-responsive"></table>
       </div>
+
+
+
     </div>
+<div class="px-4 py-5 my-5 text-center">
+  <p class="lead mb-4 mt-20" style="font-size:14px">List sources: <br/>
+    Chennai: Archana KC (<a href="https://www.instagram.com/archkc/" target="_blank">@archkc</a>) <br/>
+    Delhi: Devika Narain, Chef Saransh Goila</p> 
+</div>
+
+    
 
 
 
@@ -199,8 +270,8 @@
       const CHN_SHEET = 'https://docs.google.com/spreadsheets/d/1bCdBREvnO5W9GpsmFhra1SECsSNAvKm4aNs4BVXiuu0/edit#gid=0';
       const CHN_COLUMN_TO_SEARCH = "B";
 
-      const DLI_SHEET = 'https://docs.google.com/spreadsheets/d/1Y6r9GXE6eooPxi1X820zTxPXSuHK4J9Q4_yHDgF4Rno/edit#gid=0';
-      const DLI_COLUMN_TO_SEARCH = "C";
+      const DLI_SHEET = 'https://docs.google.com/spreadsheets/d/1reMGzr3g41wEQSlnzkMo2yK2SJDlRbosyAzu_dDGlV4/edit#gid=0';
+      const DLI_COLUMN_TO_SEARCH = "B";
 
       const BLR = "blr";
       const CHN = "chn";
