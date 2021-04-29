@@ -42,6 +42,7 @@
           <option value="blr">Bangalore</option>
           <option value="chn">Chennai</option>
           <option value="dli">Delhi</option>
+          <option value="mysore">Mysore</option>
         </select>
 
         <select class="form-select area_list" id="blr_list" aria-label="Default select example" style="display:none">
@@ -79,6 +80,7 @@
           <option value="Diamond district">Diamond district</option>
           <option value="Dodsworth Layout">Dodsworth Layout</option>
           <option value="Dollars Colony">Dollars Colony</option>
+          <option value="Domlur">Domlur</option>
           <option value="ECC road">ECC road</option>
           <option value="Ejipura">Ejipura</option>
           <option value="Electronic City">Electronic City</option>
@@ -108,6 +110,7 @@
           <option value="JP Nagar">JP Nagar</option>
           <option value="Kadugodi">Kadugodi</option>
           <option value="Kaggadasapura">Kaggadasapura</option>
+          <option value="Kalyan Nagar">Kalyan Nagar</option>
           <option value="Kammanahalli">Kammanahalli</option>
           <option value="Kanakapura Road">Kanakapura Road</option>
           <option value="Kasturinagar">Kasturinagar</option>
@@ -144,7 +147,7 @@
           <option value="Rajajinagar">Rajajinagar</option>
           <option value="Rajarajeshwari Nagar">Rajarajeshwari Nagar</option>
           <option value="Richardstown">Richardstown</option>
-          <option value="Richmond Road">Richmond Road</option>
+          <option value="Richmond Road">Richmon Road</option>
           <option value="RMV Extension">RMV Extension</option>
           <option value="RT Nagar">RT Nagar</option>
           <option value="Sadashiv Nagar">Sadashiv Nagar</option>
@@ -157,7 +160,7 @@
           <option value="Tavarekere">Tavarekere</option>
           <option value="Thanisandra">Thanisandra</option>
           <option value="Tyagarajanagar">Tyagarajanagar</option>
-          <option value="Uttarahalli,  ">Uttarahalli,  </option>
+          <option value="Uttarahalli">Uttarahalli</option>
           <option value="Varthur">Varthur</option>
           <option value="Vasanth Nagar">Vasanth Nagar</option>
           <option value="Vasanthnagar">Vasanthnagar</option>
@@ -166,6 +169,7 @@
           <option value="VV Puram ">VV Puram </option>
           <option value="Whitefield">Whitefield</option>
           <option value="Yelahanka">Yelahanka</option>
+          <option value="Yeshwantpur">Yeshwantpur</option>
         </select>
 
 
@@ -292,6 +296,11 @@
           <option value="Vasundhra">Vasundhra</option>
         </select>
 
+        <select class="form-select area_list" id="mysore_list" aria-label="Default select example" style="display:none">
+          <option value="" selected>Select a location</option>
+          <option value="city">All Mysore options</option>
+        </select>
+
       </div>
     </div>
 
@@ -338,9 +347,14 @@
       const DLI_SHEET = 'https://docs.google.com/spreadsheets/d/1reMGzr3g41wEQSlnzkMo2yK2SJDlRbosyAzu_dDGlV4/edit#gid=0';
       const DLI_COLUMN_TO_SEARCH = "B";
 
+      const MYSORE_SHEET = 'https://docs.google.com/spreadsheets/d/11AwAdCT7PmYNmo4IIQpfx9_MO45q_f_4wA59ziCy_CE/edit#gid=0';
+      const MYSORE_COLUMN_TO_SEARCH = "G";
+      
+
       const BLR = "blr";
       const CHN = "chn";
       const DLI = "dli";
+      const MYSORE = "mysore";
 
 
   
@@ -376,6 +390,9 @@
         } else if(cityName == DLI){
            sheetUrl = DLI_SHEET;
            column = DLI_COLUMN_TO_SEARCH
+        } else if(cityName == MYSORE){
+           sheetUrl = MYSORE_SHEET;
+           column = MYSORE_COLUMN_TO_SEARCH
         } 
 
         return [sheetUrl, column]
@@ -396,6 +413,11 @@
         if(cityName == BLR){
           $(".area_list").hide();
           $("#blr_list").show();
+        } 
+
+        if(cityName == MYSORE){
+          $(".area_list").hide();
+          $("#mysore_list").show();
         } 
 
       }
@@ -429,6 +451,10 @@
             search(DLI, area);
           });
 
+          $("#mysore_list").change(function(){
+            var area = $(this).val();
+            search(MYSORE, area);
+          });
       });
 
     </script>
