@@ -371,6 +371,32 @@
       const MYSORE = "mysore";
 
 
+
+      function manipulate_rows_data(error, options, response){
+        if (!error) {
+          var tbody = document.createElement('tbody'); 
+
+          response.rows.forEach(function (row, row_index) {
+            var tr = document.createElement('tr');
+            
+            row.cellsArray.forEach(function (cell, cell_index) {
+              var td = document.createElement('td');
+              tr.appendChild(td);
+              var clean_text = cell.trim();
+
+              if(clean_text.match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g)){
+                  // console.log(cell);
+                  td.innerHTML = cell + "<a href='https://api.whatsapp.com/send/?phone=+91"+cell+"&text=Hey%2C+I+found+your+service+on+codifiedself.github.io/homefood+and+I%27m+looking+to+order&app_absent=0' target='_blank'>&nbsp;<img src='whatsapp.png'/></a>";
+              } else {
+                td.innerHTML = cell;
+              }   
+            });
+            tbody.appendChild(tr);
+
+          });
+          document.getElementById('people').appendChild(tbody);      
+        }
+      }
   
       function search(city, area, sheetColumn){
         hideResults();
@@ -382,10 +408,11 @@
         if(area != ""){
           query = "select * where lower(" +sheetDetails[1]+ ") contains '"+ area.toLowerCase() +"'";
 
-          $('#people').sheetrock({
+          sheetrock({
             url: sheetDetails[0],
             query: query,
             reset: true,
+            callback: manipulate_rows_data
           });
 
           $('#results').show();
