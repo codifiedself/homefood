@@ -371,14 +371,20 @@
       const MYSORE = "mysore";
 
 
+      function random_generator(a, b) {  
+        return 0.5 - Math.random();
+      } 
 
       function manipulate_rows_data(error, options, response){
         if (!error) {
           var tbody = document.createElement('tbody'); 
 
-          response.rows.forEach(function (row, row_index) {
+          rows = response.rows;
+          rows.sort(random_generator);       
+
+          rows.forEach(function (row, row_index) {
             var tr = document.createElement('tr');
-            
+
             row.cellsArray.forEach(function (cell, cell_index) {
               var td = document.createElement('td');
               tr.appendChild(td);
@@ -397,6 +403,8 @@
           document.getElementById('people').appendChild(tbody);      
         }
       }
+
+
   
       function search(city, area, sheetColumn){
         hideResults();
