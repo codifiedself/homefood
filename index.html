@@ -321,7 +321,7 @@
     <div id="results" class="px-4 py-5 my-5 text-center" style="display:none">
 
       <h3 class="display-8 fw-bold">Below is the list of people/vendors who are available in this area</h3>
-      <!-- <p class="lead mb-4">Below is the list of people,vendors who are available in your selected area</p> -->
+      <p class="lead mb-4">Click on the <img src='whatsapp.png' style="width:20px;"/> WhatsApp icon to send out a message</p>
 
       <div class="col-lg-10 mx-auto" style="margin-top:20px">
         <table id="people" class="table table-condensed table-striped table-responsive"></table>
@@ -389,9 +389,8 @@
               var td = document.createElement('td');
               tr.appendChild(td);
               var clean_text = cell.trim();
-
+              //find valid phone numbers in cell data annd add whatsapp link to it
               if(clean_text.match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g)){
-                  // console.log(cell);
                   td.innerHTML = cell + "<a href='https://api.whatsapp.com/send/?phone=+91"+cell+"&text=Hey%2C+I+found+your+service+on+codifiedself.github.io/homefood+and+I+wanted+some+help+with+food+for+covid+patients.&app_absent=0' target='_blank'>&nbsp;<img src='whatsapp.png'/></a>";
               } else {
                 td.innerHTML = cell;
