@@ -36,6 +36,9 @@
 </h3>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Please select a city and area below to get a list of people/vendors providing meals in your area.</p>
+         <p class="lead mb-4 mt-20" style="font-size: 16px;font-weight: bold;">If you don't find your area in the list, please select 'All over the city' option in the area dropdown to find people who could help.</p>
+ 
+
 
         <select class="form-select" id="city_list" aria-label="Default select example" style="margin-top: 50px">
           <option value="" selected>Select a city</option>
@@ -47,7 +50,7 @@
 
         <select class="form-select area_list" id="blr_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
-          <option value="All over Bangalore">All over Bangalore</option>
+          <option value="All over Bangalore">All over the city</option>
           <option value="AECS Layout">AECS Layout</option>
           <option value="Agrahara">Agrahara</option>
           <option value="AGS layout">AGS layout</option>
@@ -255,7 +258,7 @@
 
         <select class="form-select area_list" id="chn_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
-          <option value="All across Chennai">All across Chennai</option>
+          <option value="All across Chennai">All over the city</option>
           <option value="Adambakkam">Adambakkam</option>
           <option value="Alwarpet">Alwarpet</option>
           <option value="Alwarthirunagar">Alwarthirunagar</option>
@@ -312,7 +315,7 @@
 
         <select class="form-select area_list" id="dli_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
-          <option value="All across Delhi">All across Delhi</option>
+          <option value="All across Delhi">All over the city</option>
           <option value="North Delhi">North Delhi</option>
           <option value="East Delhi">East Delhi</option>
           <option value="South Delhi">South Delhi</option>
@@ -378,7 +381,7 @@
 
         <select class="form-select area_list" id="mysore_list" aria-label="Default select example" style="display:none">
           <option value="" selected>Select a location</option>
-          <option value="mysore">All Mysore options</option>
+          <option value="mysore">All over the city</option>
         </select>
 
       </div>
@@ -399,7 +402,7 @@
 
 
 <div class="px-4 py-5 my-5 text-center">
-  <p class="lead mb-4 mt-20" style="ffont-size: 20px;font-weight: bold;">In you wish to add your meal services to this list, please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrA0SWnLr-3EdnJqqX2ndtyotX7PJ7RrFmpfwqU8T4kYIISg/viewform?usp=sf_link" target="_blank">form here</a>.</p>
+  <p class="lead mb-4 mt-20" style="font-size: 20px;font-weight: bold;">In you wish to add your meal services to this list, please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrA0SWnLr-3EdnJqqX2ndtyotX7PJ7RrFmpfwqU8T4kYIISg/viewform?usp=sf_link" target="_blank">form here</a>.</p>
     <p class="lead mb-4" style="font-size:14px">List sources: <br/>
     Bangalore: Sneha Vachhaney, Sreya Vittaldev, Chef Saransh Goila, Chennai: Archana KC (<a href="https://www.instagram.com/archkc/" target="_blank">@archkc</a>), Delhi: Devika Narain, Chef Saransh Goila</p> 
     <p class="lead mb-4" style="font-size:14px">Website created & maintained by:<br/><a href="https://www.instagram.com/snehavachhaney/" target="_blank">Sneha Vachhaney</a> &  <a href="https://twitter.com/nitin_pande" target="_blank">Nitin Pande</a>
@@ -466,6 +469,12 @@
 
           });
           document.getElementById('people').appendChild(tbody);      
+        } else {
+          var div = document.createElement('div');
+          $(div).css("padding","40px");
+          $(div).css("font-size","20px");
+          div.innerHTML = "No home chef available exclusively in this area right now. Please select the 'All over the city' option in the area dropdown to find other people who could help.";
+          document.getElementById('people').appendChild(div);   
         }
       }
 
